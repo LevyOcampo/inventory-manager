@@ -1,0 +1,63 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    display: flex;
+    padding: 30px;
+    background: #0f2940;
+    height: 30px;
+}
+
+.sidenav {
+    width: 200px;
+    background: #4a596d;
+    position: absolute;
+    height: 95vh;
+    padding: 0 30px;
+    transition: all 0.25s;
+    left: -100%;
+}
+
+.sidenav.active {
+    left: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+ul li {
+    list-style-type: none;
+    margin: 10px 0;
+}
+
+ul li a {
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 6px;
+}
+
+ul li a:hover,
+ul li a.active {
+    background: #134074;
+}
+
+header svg {
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 25px; 
+}
+
+.title {
+    font-size: 20px; 
+    color: white;
+    margin: 0; 
+}
