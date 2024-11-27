@@ -1,0 +1,41 @@
+:root {
+    --primary-color: #003366; /* Dark Blue */
+    --secondary-color: #6699CC; /* Light Blue */
+    --accent-color: #FFCC33; /* Yellow */
+    --dark-gray: #333333; /* Neutral Dark Gray */
+    --light-gray: #F2F2F2; /* Neutral Light Gray */
+  }
+  
+  body {
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    font-family: Arial, sans-serif;
+  }
+  
+  h1, h2, h3, th {
+    color: var(--primary-color);
+  }
+  
+  .card {
+    border: 1px solid var(--secondary-color);
+  }
+  
+  .btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+  }
+  
+  .table-dark {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: var(--secondary-color);
+  }
+  
