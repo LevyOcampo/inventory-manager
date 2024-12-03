@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Modal({ isOpen, onClose, title, children }) {
-  if (!isOpen) return null; // Only render if open
+  if (!isOpen) return null;
 
   return (
     <div className="modal-overlay">

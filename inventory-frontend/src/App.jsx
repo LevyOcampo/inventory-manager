@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
-import Employees from "./pages/Employees";
+import Employees from "./pages/employees";
 import PCs from "./pages/PCs";
 import Monitors from "./pages/Monitors";
 import Dashboard from "./pages/Dashboard";
