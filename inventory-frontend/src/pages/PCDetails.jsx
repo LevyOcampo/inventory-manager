@@ -7,7 +7,7 @@ export default function PCDetails() {
   const [pc, setPC] = useState(null);
   const [employee, setEmployee] = useState(null); // Employee assigned to the PC
   const [monitor, setMonitor] = useState(null); // Monitor assigned to the employee
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null);
 
   useEffect(() => {

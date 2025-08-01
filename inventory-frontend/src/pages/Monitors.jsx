@@ -55,15 +55,25 @@ export default function Monitors() {
   // Add a new monitor
   const handleAddMonitor = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/monitors", newMonitor);
-      setMonitors((prev) => [...prev, response.data]);
-      setFilteredMonitors((prev) => [...prev, response.data]); // Update filtered list
-      setModalOpen(false); // Close the modal
-      setNewMonitor({ serial_number: "", model_number: "", size: "", status: "available" }); // Reset form
+      await axios.post("http://localhost:3000/monitors", newMonitor);
+  
+      // Re-fetch updated monitor list
+      const { data } = await axios.get("http://localhost:3000/monitors");
+      setMonitors(data);
+      setFilteredMonitors(data);
+  
+      setModalOpen(false); // Close modal
+      setNewMonitor({
+        serial_number: "",
+        model_number: "",
+        size: "",
+        status: "available",
+      });
     } catch (error) {
       console.error("Error adding monitor:", error);
     }
   };
+  
 
   // Handle row click to navigate to details page
   const handleRowClick = (id) => {

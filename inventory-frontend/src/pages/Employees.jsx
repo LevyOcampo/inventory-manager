@@ -55,23 +55,25 @@ export default function Employees() {
   // Add a new employee
   const handleAddEmployee = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:3000/employees",
-        newEmployee
-      );
-      setEmployees((prev) => [...prev, response.data]);
-      setFilteredEmployees((prev) => [...prev, response.data]); // Update filtered list
+      await axios.post("http://localhost:3000/employees", newEmployee);
+      
+      // Re-fetch full employee list
+      const { data } = await axios.get("http://localhost:3000/employees");
+      setEmployees(data);
+      setFilteredEmployees(data);
+  
       setModalOpen(false); // Close the modal
       setNewEmployee({
         name: "",
         position: "",
         division: "",
         section: "",
-      }); // Reset form
+      });
     } catch (error) {
       console.error("Error adding employee:", error);
     }
   };
+  
 
   // Handle row click to navigate to details page
   const handleRowClick = (id) => {
@@ -86,13 +88,13 @@ export default function Employees() {
           Add New Item
         </button>
       </div>
-
+      
       {/* Search Bar */}
       <input
         type="text"
         placeholder="Search employees..."
         value={searchQuery}
-        onChange={handleSearchChange}
+        onChange={handleSearchChange} 
         className="form-control mb-3"
       />
 

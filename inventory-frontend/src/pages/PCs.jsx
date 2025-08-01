@@ -59,10 +59,14 @@ export default function PCs() {
   // Add a new PC
   const handleAddPC = async () => {
     try {
-      const response = await axios.post("http://localhost:3000/pcs", newPC);
-      setPCs((prev) => [...prev, response.data]);
-      setFilteredPCs((prev) => [...prev, response.data]); // Update filtered list
-      setModalOpen(false); // Close the modal
+      await axios.post("http://localhost:3000/pcs", newPC);
+  
+      // Re-fetch updated PC list
+      const { data } = await axios.get("http://localhost:3000/pcs");
+      setPCs(data);
+      setFilteredPCs(data);
+  
+      setModalOpen(false); // Close modal
       setNewPC({
         serial_number: "",
         model_number: "",
@@ -70,13 +74,14 @@ export default function PCs() {
         memory: "",
         hard_drive: "",
         status: "available",
-      }); // Reset form
+      });
     } catch (error) {
       console.error("Error adding PC:", error);
     }
   };
+  
 
-  // Handle row click to navigate to details page
+  // Handle row click to navigate to details pages
   const handleRowClick = (id) => {
     navigate(`/pcs/${id}`);
   };
