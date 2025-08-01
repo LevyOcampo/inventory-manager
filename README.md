@@ -29,4 +29,63 @@ This project is a **full-stack inventory management system** built with React (f
 ```bash
 git clone https://github.com/LevyOcampo/inventory-manager.git
 cd inventory-manager
+```
 
+
+# 🖥️ Frontend Setup
+Navigate to the frontend folder:
+```bash
+cd inventory-frontend
+```
+Install dependencies:
+```bash
+npm install
+```
+Start the development server:
+```bash
+npm run dev
+```
+The frontend should now be running at http://localhost:5173
+
+# 🛠️ Backend Setup
+Navigate to the backend folder:
+```bash
+cd ../inventory-backend
+```
+Create a .env file with your database credentials:
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=your_mysql_username
+DB_PASSWORD=your_mysql_password
+DB_NAME=inventory_db
+```
+Install dependencies:
+```bash
+npm install
+```
+Start the server:
+```bash
+node index.js
+```
+The backend should now be running at http://localhost:3000
+
+# 🗃️ Database Setup
+Create the MySQL database:
+```sql
+CREATE DATABASE inventory_db;
+```
+The tables are automatically created by Sequelize when the backend starts. Make sure your database credentials in .env are correct.
+
+# 🌐 Connecting Frontend to Backend
+Ensure that your frontend API calls (e.g., fetch, axios) are pointed to:
+
+```arduino
+http://localhost:3000
+```
+You may also set up a proxy in vite.config.js for development convenience.
+
+# ✅ Done!
+You should now be able to use the Inventory Manager app locally.
+
+If you run into any issues or need additional support, feel free to open an issue or contact the maintainer.
