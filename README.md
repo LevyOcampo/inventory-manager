@@ -22,61 +22,86 @@ This project is a **full-stack inventory management system** built with React (f
 
 ---
 
-## 🚀 Getting Started  
-
-### **1️⃣ Clone the Repository**  
-```sh
-git clone <your-repo-link>
-cd inventory-manager
-🏗️ Frontend Setup
-2️⃣ Install Dependencies
-sh
+🚀 Getting Started
+1. Clone the repository
+bash
 Copy
 Edit
+git clone https://github.com/LevyOcampo/inventory-manager.git
 cd inventory-manager
+📂 Project Structure
+bash
+Copy
+Edit
+inventory-manager/
+├── inventory-frontend/     # React (Vite) frontend
+├── inventory-backend/      # Node.js + Express backend
+└── README.md
+🖥️ Frontend Setup
+Navigate to the frontend folder:
+
+bash
+Copy
+Edit
+cd inventory-frontend
+Install dependencies:
+
+bash
+Copy
+Edit
 npm install
-3️⃣ Start the Development Server
-sh
+Start the development server:
+
+bash
 Copy
 Edit
 npm run dev
-The React app should now be accessible at http://localhost:5173/.
+The frontend should now be running at http://localhost:5173
 
-🖥️ Backend Setup
-4️⃣ Install Dependencies
-sh
+🛠️ Backend Setup
+Navigate to the backend folder:
+
+bash
 Copy
 Edit
-cd inventory-backend
+cd ../inventory-backend
+Create a .env file with your database credentials:
+
+env
+Copy
+Edit
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=your_mysql_username
+DB_PASSWORD=your_mysql_password
+DB_NAME=inventory_db
+Install dependencies:
+
+bash
+Copy
+Edit
 npm install
-5️⃣ Set Up Environment Variables
-Create a .env file in the inventory-backend folder and configure your database connection:
+Start the server:
 
-ini
-Copy
-Edit
-DB_HOST=your_database_host
-DB_USER=your_database_user
-DB_PASSWORD=your_database_password
-DB_NAME=your_database_name
-6️⃣ Start the Backend Server
-sh
+bash
 Copy
 Edit
 node index.js
-The backend should now be running on http://localhost:3000/.
+The backend should now be running at http://localhost:3000
 
-🔗 Connecting Frontend and Backend
-Open inventory-manager/src/api.js (or equivalent API config file).
-Set the backend API URL to match your Express server's address (e.g., http://localhost:3000).
-Restart both servers if necessary.
-🛠️ Additional Scripts
-Command	Description
-npm run dev	Starts the frontend in development mode
-npm run build	Builds the frontend for production
-npm run preview	Previews the production build
-node index.js	Starts the backend
-📌 Notes
-Ensure MySQL is installed and running before starting the backend.
-You may need to migrate or seed your database with Sequelize.
-If you encounter CORS errors, update the Express CORS middleware settings.
+🗃️ Database Setup
+Create the MySQL database:
+
+sql
+Copy
+Edit
+CREATE DATABASE inventory_db;
+The tables are automatically created by Sequelize when the backend starts. Make sure your database credentials in .env are correct.
+
+🌐 Connecting Frontend to Backend
+Ensure that your frontend API calls (e.g., fetch, axios) are pointed to http://localhost:3000. You may also set up a proxy in vite.config.js for development convenience.
+
+✅ Done!
+You should now be able to use the Inventory Manager app locally.
+
+If you run into any issues or need additional support, feel free to open an issue or contact the maintainer.
